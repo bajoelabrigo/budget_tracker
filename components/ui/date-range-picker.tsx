@@ -124,8 +124,9 @@ export const DateRangePicker: FC<DateRangePickerProps> & {
   );
 
   // Refs para recordar valores al abrir el popover
-  const openedRangeRef = useRef<DateRange | undefined>();
-  const openedRangeCompareRef = useRef<DateRange | undefined>();
+  // ✅ inicializa los refs
+  const openedRangeRef = useRef<DateRange | null>(null);
+  const openedRangeCompareRef = useRef<DateRange | null>(null);
 
   const [selectedPreset, setSelectedPreset] = useState<string | undefined>(
     undefined
@@ -319,7 +320,7 @@ export const DateRangePicker: FC<DateRangePickerProps> & {
   useEffect(() => {
     if (isOpen) {
       openedRangeRef.current = range;
-      openedRangeCompareRef.current = rangeCompare;
+      openedRangeCompareRef.current = rangeCompare ?? null;
     }
   }, [isOpen, range, rangeCompare]);
 
@@ -545,8 +546,11 @@ export const DateRangePicker: FC<DateRangePickerProps> & {
             onClick={() => {
               setIsOpen(false);
               if (
-                !areRangesEqual(range, openedRangeRef.current) ||
-                !areRangesEqual(rangeCompare, openedRangeCompareRef.current)
+                !areRangesEqual(range, openedRangeRef.current ?? undefined) ||
+                !areRangesEqual(
+                  rangeCompare ?? undefined,
+                  openedRangeCompareRef.current ?? undefined
+                )
               ) {
                 onUpdate?.({ range, rangeCompare });
               }
