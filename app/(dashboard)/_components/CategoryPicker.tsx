@@ -34,7 +34,7 @@ function CategoryPicker({
   type,
   value,
   onChange,
-  placeholder = "Select category",
+  placeholder = "Seleccionar categoria",
   disabled,
 }: Props) {
   const [open, setOpen] = useState(false);
@@ -89,13 +89,13 @@ function CategoryPicker({
             e.preventDefault();
           }}
         >
-          <CommandInput placeholder="Search category..." />
+          <CommandInput placeholder="Buscar categoria..." />
           <CreateCategoryDialog type={type} successCallback={successCallback} />
 
           <CommandEmpty>
-            <p>Category not found</p>
+            <p>Categoría no encontrada</p>
             <p className="text-xs text-muted-foreground">
-              Tip: Create a new category
+              Consejo: Crea una nueva categoría
             </p>
           </CommandEmpty>
 

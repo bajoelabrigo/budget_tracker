@@ -27,9 +27,9 @@ function page() {
       <div className="border-b bg-card ">
         <div className="container flex flex-wrap items-center justify-between gap-6 py-8">
           <div className="px-8">
-            <p className="text-3xl font-bold">Manage</p>
+            <p className="text-3xl font-bold">Administrar</p>
             <p className="text-muted-foreground">
-              Manage your account settings and categories
+              Administra la configuración y las categorías de tu cuenta
             </p>
           </div>
         </div>
@@ -38,9 +38,9 @@ function page() {
       <div className="container flex flex-col gap-4 p-4">
         <Card>
           <CardHeader>
-            <CardTitle>Currency</CardTitle>
+            <CardTitle>Moneda</CardTitle>
             <CardDescription>
-              Set your default currency for transactions
+              Establezca su moneda predeterminada para las transacciones
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -77,9 +77,9 @@ function CategoryList({ type }: { type: TransactionType }) {
                 <TrendingUp className="h-12 w-12 items-center rounded-lg bg-emerald-400/10 p-2 text-emerald-500" />
               )}
               <div>
-                {type === "income" ? "Incomes" : "Expenses"} categories
+                {type === "income" ? "Ingresos" : "Gastos"} categorias
                 <div className="text-sm text-muted-foreground">
-                  Sorted by name
+                 Ordenado por nombre
                 </div>
               </div>
             </div>
@@ -90,7 +90,7 @@ function CategoryList({ type }: { type: TransactionType }) {
               trigger={
                 <Button className="gap-2 text-sm">
                   <PlusSquare className="h-4 w-4" />
-                  Create category
+                  Crear categoria
                 </Button>
               }
             />
@@ -100,20 +100,20 @@ function CategoryList({ type }: { type: TransactionType }) {
         {!dataAvailable && (
           <div className="flex h-40 w-full flex-col items-center justify-center">
             <p>
-              No
+              No hay
               <span
                 className={cn(
                   "m-1",
                   type === "income" ? "text-emerald-500" : "text-red-500"
                 )}
               >
-                {type}
+                {type==="income"? "Ingreso":"Gasto"}
               </span>
-              categories yet
+              categorías todavía
             </p>
 
             <p className="text-sm text-muted-foreground">
-              Create one to get started
+              Crea uno para comenzar
             </p>
           </div>
         )}
@@ -146,7 +146,7 @@ function CategoryCard({ category }: { category: Category }) {
             variant={"secondary"}
           >
             <TrashIcon className="h-4 w-4" />
-            Remove
+            Eliminar
           </Button>
         }
       />

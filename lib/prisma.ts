@@ -1,16 +1,14 @@
-import { PrismaClient } from "./generated/prisma";
+import { PrismaClient } from "@/lib/generated/prisma"; // 👈 coincide con tu "output" del schema
 
+const globalForPrisma = globalThis as unknown as { prisma?: PrismaClient };
 
-const prismaClientSingleton = () => {
-  return new PrismaClient();
-};
+// No pases opciones al constructor; usará env("DATABASE_URL") del schema
+export const prisma =
+  globalForPrisma.prisma ??
+  new PrismaClient({
+    // opcional: log: ["warn", "error"],
+  });
 
-declare global {
-  var prismaGlobal: undefined | ReturnType<typeof prismaClientSingleton>;
-}
-
-const prisma = globalThis.prismaGlobal ?? prismaClientSingleton();
+if (process.env.NODE_ENV !== "production") globalForPrisma.prisma = prisma;
 
 export default prisma;
-
-if (process.env.NODE_ENV !== "production") globalThis.prismaGlobal = prisma;

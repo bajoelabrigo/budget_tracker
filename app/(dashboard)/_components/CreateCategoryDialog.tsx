@@ -70,7 +70,7 @@ function CreateCategoryDialog({ type, successCallback, trigger }: Props) {
         type,
       });
 
-      toast.success(`Category ${data.name} created successfully 🎉`, {
+      toast.success(`Categoria ${data.name} creada correctamente 🎉`, {
         id: "create-category",
       });
 
@@ -83,7 +83,7 @@ function CreateCategoryDialog({ type, successCallback, trigger }: Props) {
       setOpen((prev) => !prev);
     },
     onError: () => {
-      toast.error("Something went wrong", {
+      toast.error("Algo salio mal!", {
         id: "create-category",
       });
     },
@@ -91,7 +91,7 @@ function CreateCategoryDialog({ type, successCallback, trigger }: Props) {
 
   const onSubmit = useCallback(
     (values: CreateCategorySchemaType) => {
-      toast.loading("Creating category...", {
+      toast.loading("Creando categoria..", {
         id: "create-category",
       });
       mutate(values);
@@ -117,7 +117,7 @@ function CreateCategoryDialog({ type, successCallback, trigger }: Props) {
       <DialogContent>
         <DialogHeader>
           <DialogTitle>
-            Create
+            Crear
             <span
               className={cn(
                 "m-1",
@@ -126,10 +126,10 @@ function CreateCategoryDialog({ type, successCallback, trigger }: Props) {
             >
               {type}
             </span>
-            category
+            categoria
           </DialogTitle>
           <DialogDescription>
-            Categories are used to group your transactions
+            Las categorías se utilizan para agrupar sus transacciones
           </DialogDescription>
         </DialogHeader>
         <Form {...form}>
@@ -139,12 +139,12 @@ function CreateCategoryDialog({ type, successCallback, trigger }: Props) {
               name="name"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Name</FormLabel>
+                  <FormLabel>Nombre</FormLabel>
                   <FormControl>
                     <Input placeholder="Category" {...field} />
                   </FormControl>
                   <FormDescription>
-                    This is how your category will appear in the app
+                    Así aparecerá tu categoría en la aplicación
                   </FormDescription>
                 </FormItem>
               )}

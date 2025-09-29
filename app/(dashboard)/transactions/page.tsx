@@ -17,7 +17,7 @@ function TransactionsPage() {
       <div className="border-b bg-card px-8">
         <div className="container flex flex-wrap items-center justify-between gap-6 py-8">
           <div>
-            <p className="text-3xl font-bold">Transactions history</p>
+            <p className="text-3xl font-bold">Historial de Transacciones</p>
           </div>
           <DateRangePicker
             initialDateFrom={dateRange.from}
@@ -30,7 +30,7 @@ function TransactionsPage() {
               if (!from || !to) return;
               if (differenceInDays(to, from) > MAX_DATE_RANGE_DAYS) {
                 toast.error(
-                  `The selected date range is too big. Max allowed range is ${MAX_DATE_RANGE_DAYS} days!`
+                  `El rango de fechas seleccionado es demasiado grande. El rango máximo permitido es ${MAX_DATE_RANGE_DAYS} días!`
                 );
                 return;
               }

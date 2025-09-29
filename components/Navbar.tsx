@@ -27,9 +27,9 @@ function Navbar() {
 }
 
 const items = [
-  { label: "Dashboard", link: "/" },
-  { label: "Transactions", link: "/transactions" },
-  { label: "Manage", link: "/manage" },
+  { label: "Panel de control", link: "/" },
+  { label: "Transacciones", link: "/transactions" },
+  { label: "Administrar", link: "/manage" },
 ];
 
 function MobileNavbar() {

@@ -223,7 +223,7 @@ function TransactionTable({ from, to }: Props) {
             }}
           >
             <DownloadIcon className="mr-2 h-4 w-4" />
-            Export CSV
+           Exportar CSV
           </Button>
           <DataTableViewOptions table={table} />
         </div>
@@ -272,7 +272,7 @@ function TransactionTable({ from, to }: Props) {
                     colSpan={columns.length}
                     className="h-24 text-center"
                   >
-                    No results.
+                    No hay resulttados.
                   </TableCell>
                 </TableRow>
               )}
@@ -286,7 +286,7 @@ function TransactionTable({ from, to }: Props) {
             onClick={() => table.previousPage()}
             disabled={!table.getCanPreviousPage()}
           >
-            Previous
+            Anterior
           </Button>
           <Button
             variant="outline"
@@ -294,7 +294,7 @@ function TransactionTable({ from, to }: Props) {
             onClick={() => table.nextPage()}
             disabled={!table.getCanNextPage()}
           >
-            Next
+            Siguiente
           </Button>
         </div>
       </SkeletonWrapper>
@@ -317,12 +317,12 @@ function RowActions({ transaction }: { transaction: TransactionHistoryRow }) {
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Button variant={"ghost"} className="h-8 w-8 p-0 ">
-            <span className="sr-only">Open menu</span>
+            <span className="sr-only">Abrir menú</span>
             <MoreHorizontal className="h-4 w-4" />
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end">
-          <DropdownMenuLabel>Actions</DropdownMenuLabel>
+          <DropdownMenuLabel>Acciones</DropdownMenuLabel>
           <DropdownMenuSeparator />
           <DropdownMenuItem
             className="flex items-center gap-2"
@@ -331,7 +331,7 @@ function RowActions({ transaction }: { transaction: TransactionHistoryRow }) {
             }}
           >
             <TrashIcon className="h-4 w-4 text-muted-foreground" />
-            Delete
+            Eliminar
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
